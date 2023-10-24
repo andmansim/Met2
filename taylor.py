@@ -29,7 +29,7 @@ def pintar(puntos):
     plt.show()
 
 #main
-x0 = float(input('Introdice la x inicial: ')) #punto inicial
+x0 = float(input('Introduce la x inicial: ')) #punto inicial
 y0 = float(input('Introduce la y inicial: ')) #punto inicial
 xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
