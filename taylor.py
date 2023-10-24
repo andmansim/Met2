@@ -7,7 +7,7 @@ def funcion(x,y):
 def funcion2(x,y):
     return 2 *x * np.exp(-3*x) -3*y
 
-def iterar(x, y, f): #me saca los distintos puntos de la gráfica
+def iterar(x, y, f): #saca los distintos puntos de la gráfica
     while x <= xf:
         xn = x + h
         yn = y + h * f (x,y)
@@ -28,9 +28,9 @@ def pintar(puntos):
     
 x0 = int(input('Introdice la x inicial: ')) #punto inicial
 y0 = int(input('Introduce la y inicial: ')) #punto inicial
-xf = 9
+xf = 9 #punto final
 n = int(input('Número de divisiones: '))
-h = (xf - x0)/n #intervalo chisuitito
+h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
 iterar(x0, y0, funcion2)
