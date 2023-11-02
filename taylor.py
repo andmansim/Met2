@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def funcion(x,y):
-    return (2-x-y)/(x-y+4)
+    return (1 + 4*x*y)/(3*x**2)
 
 def funcion2(x,y):
     return 2 *x * np.exp(-3*x) -3*y
@@ -36,7 +36,7 @@ n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
-iterar(x0, y0, funcion2)
+iterar(x0, y0, funcion)
 pintar(puntos)
         
 
