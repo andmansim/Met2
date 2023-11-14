@@ -40,5 +40,5 @@ puntos = [] #lista de puntos
 iterar(x0, y0, funcion)
 iterar(x0, y0, funcion2)
 pintar(puntos)
-# Con esta función (2-3*x -y)/(x-1) tenemos, solción real es y(6) = -8,20 y la solución aproximada es w100 = -8,20 --> tenemos un error de 0
+# Con esta función (2-3*x -y)/(x-1) tenemos, solución real es y(6) = -8,20 y la solución aproximada es w100 = -8,20 --> tenemos un error de 0
 # Con esta función (1+4*x*y)/(3*x**2) tenemos, solución real es y(4)= -11,46 y la solución aproximada es w100 = -11.45395 --> tenemos un error de 0.00605
