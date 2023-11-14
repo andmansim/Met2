@@ -4,9 +4,6 @@ import numpy as np
 def funcion(x,y):
     return (1 + 4*x*y)/(3*x**2)
 
-def funcion2(x,y):
-    return 2 *x * np.exp(-3*x) -3*y
-
 def iterar(x, y, f): 
     '''Itera la función'''
     while x <= xf:
