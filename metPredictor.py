@@ -1,17 +1,18 @@
+#En vez de tomar la pendiente de P0 tomamos el valor promedio de la pendiente de P1 y P0
+#Teoría en el campus, con este método hemos obtenido un método proporcional a H^3
 import matplotlib.pyplot as plt
 import numpy as np
 
 def funcion(x,y):
-    return (1 + 4*x*y)/(3*x**2)
+    return (2-3*x -y)/(x-1)
 
-def funcion2(x,y):
-    return 2 *x * np.exp(-3*x) -3*y
 
 def iterar(x, y, f): 
     '''Itera la función'''
     while x <= xf:
         xn = x + h
-        yn = y + h * f (x,y)
+        zn = y + h * f (x,y)
+        yn = y + (h/2) * (f(x,y) + f(xn, zn))
         iterar(xn, yn, f)
         puntos.append((xn, yn))
         print(xn, yn)
