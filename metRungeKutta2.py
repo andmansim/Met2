@@ -2,8 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def funcion(x,y):
-    return (2-3*x -y)/(x-1) 
-def funcion2(x,y):
     return (1+4*x*y)/(3*x**2)
 def iterar(x, y, f): 
     '''Itera la función'''
@@ -49,5 +47,6 @@ h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
 iterar(x0, y0, funcion)
-iterar(x0, y0, funcion2)
 pintar(puntos)
+
+# La función (1 + 4*x*y)/(3*x**2), tiene una solución real en y(4)= -11.46, la solución aprox es w100= -11,4642 --> error de 0,0042
