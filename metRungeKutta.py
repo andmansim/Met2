@@ -35,4 +35,4 @@ puntos = [] #lista de puntos
 
 iterar(x0, y0, funcion)
 pintar(puntos)
-    
+# La función (1 + 4*x*y)/(3*x**2), tiene una solución real en y(4)= -11.46, la solución aprox es w100= -11,4621 --> error de 0,0021
