@@ -38,23 +38,17 @@ puntos = [] #lista de puntos
 #pintar(puntos)
 
 #Código para pintar las soluciones particulares
-def iterar2(x,f): 
+def iterar_solu(x,f): 
     '''Itera la función'''
     while x <= xf:
         xn = x + h
         yn =  h * f (x)
-        iterar(xn, f)
+        iterar_solu(xn, f)
         puntos.append((xn, yn))
         print(xn, yn)
         return xn, yn
 
-def grafica(x, xf, f, h):
-    '''Pinta la gráfica'''
-    x = np.linspace(x, xf, h)
-    y = f(x)
-    plt.plot(x, y)
-    plt.show()
-    
+
 def funcion1(x):
     return (-0.5*np.exp(x) + x**2 + 2*x + 1)
 def funcion2(x):
@@ -62,14 +56,11 @@ def funcion2(x):
 def funcion3(x):
     return (-2*np.exp(x) + x**2 + 2*x + 1)
 
-iterar2(x0, funcion1)
-iterar2(x0, funcion2)
-iterar2(x0, funcion3)
+iterar_solu(x0, funcion1)
 pintar(puntos)
 
-grafica(x0, xf, funcion1)  
-grafica(x0, xf, funcion2)
-grafica(x0, xf, funcion3)    
+ 
+    
 
 
     
