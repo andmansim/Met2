@@ -69,7 +69,7 @@ puntos_solus=[]
 iterar_solu(x0, funcion3)
 pintar(puntos_solus)
 
- 
+
     
 
 
