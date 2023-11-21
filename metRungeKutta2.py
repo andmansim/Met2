@@ -2,26 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def funcion(x,y):
-    return (2-3*x -y)/(x-1) 
+    return (1 + 4*x*y)/(3*x**2)
+
 def iterar(x, y, f): 
     '''Itera la función'''
     while x <= xf:
-        #constantes (pesos)
-        a1 = 1/6
-        a2 = 1/3
-        a3 = 1/3
-        a4 = 1/6
-        
-        #Pendientes
-        k1 = f(x, y)
-        k2 = f(x +(h/2), y + (h/2)*k1)
-        k3 = f(x +(h/2), y + (h/2)*k2)
-        k4 = f(x +h, y + h*k3)
-        
-        #función
         xn = x + h
-        yn = y + h*(a1*k1 + a2*k2 + a3*k3 + a4*k4) 
-        
+        yn = y + h * f (x + (h/2), y+ (h/2) * f(x,y))
         iterar(xn, yn, f)
         puntos.append((xn, yn))
         print(xn, yn)
@@ -48,5 +35,4 @@ puntos = [] #lista de puntos
 
 iterar(x0, y0, funcion)
 pintar(puntos)
-
-# La función (1 + 4*x*y)/(3*x**2), tiene una solución real en y(4)= -11.46, la solución aprox es w100= -11,4642 --> error de 0,0042
+# La función (1 + 4*x*y)/(3*x**2), tiene una solución real en y(4)= -11.46, la solución aprox es w100= -11,4621 --> error de 0,0021
