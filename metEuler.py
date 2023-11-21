@@ -54,7 +54,7 @@ xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
-puntos_solus=[]
+puntos_solus=[] #lista de puntos de las soluciones particulares
 
 iterar(x0, y0, funcion)
 pintar(puntos)
