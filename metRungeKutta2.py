@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def funcion(x,y):
-    return (1 + 4*x*y)/(3*x**2)
+    return (y-x**2+1)
 
 def iterar(x, y, f): 
     '''Itera la función'''
