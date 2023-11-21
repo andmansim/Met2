@@ -26,17 +26,6 @@ def pintar(puntos):
     plt.show()
 
 
-#main
-x0 = float(input('Introduce la x inicial: ')) #punto inicial
-y0 = float(input('Introduce la y inicial: ')) #punto inicial
-xf = float(input('Introduce el extremo final: ')) #punto final
-n = int(input('Número de divisiones: '))
-h = (xf - x0)/n #intervalo pequeño
-puntos = [] #lista de puntos
-
-#iterar(x0, y0, funcion)
-#pintar(puntos)
-
 #Código para pintar las soluciones particulares
 def iterar_solu(x,f): 
     '''Itera la función'''
@@ -44,7 +33,7 @@ def iterar_solu(x,f):
         xn = x + h
         yn =  h * f (x)
         iterar_solu(xn, f)
-        puntos.append((xn, yn))
+        puntos_solus.append((xn, yn))
         print(xn, yn)
         return xn, yn
 
@@ -56,7 +45,22 @@ def funcion2(x):
 def funcion3(x):
     return (-2*np.exp(x) + x**2 + 2*x + 1)
 
-iterar_solu(x0, funcion1)
+
+
+#main
+x0 = float(input('Introduce la x inicial: ')) #punto inicial
+y0 = float(input('Introduce la y inicial: ')) #punto inicial
+xf = float(input('Introduce el extremo final: ')) #punto final
+n = int(input('Número de divisiones: '))
+h = (xf - x0)/n #intervalo pequeño
+puntos = [] #lista de puntos
+puntos_solus=[]
+
+iterar(x0, y0, funcion)
+pintar(puntos)
+
+
+iterar_solu(x0, funcion2)
 pintar(puntos)
 
  
