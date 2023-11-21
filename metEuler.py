@@ -60,8 +60,14 @@ iterar(x0, y0, funcion)
 pintar(puntos)
 
 
+iterar_solu(x0, funcion1)
+pintar(puntos_solus)
+puntos_solus=[]
 iterar_solu(x0, funcion2)
-pintar(puntos)
+pintar(puntos_solus)
+puntos_solus=[]
+iterar_solu(x0, funcion3)
+pintar(puntos_solus)
 
  
     
