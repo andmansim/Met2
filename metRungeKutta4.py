@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def funcion(x,y):
-    return (y-x**2+1)
+    return (-2*x*(np.exp(x**2)*y-1))/(np.exp(x**2))
 def iterar(x, y, f): 
     '''Itera la función'''
     while x <= xf:
