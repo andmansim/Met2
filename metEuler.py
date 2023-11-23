@@ -38,11 +38,11 @@ def iterar_solu(x,f):
 
 
 def funcion1(x):
-    return (-0.5*np.exp(x) + x**2 + 2*x + 1)
+    return (x**2)/(np.exp(x**2))
 def funcion2(x):
-    return (-np.exp(x) + x**2 + 2*x + 1)
+    return (x**2 + 1)/(np.exp(x**2))
 def funcion3(x):
-    return (-2*np.exp(x) + x**2 + 2*x + 1)
+    return ((x**2) -1)/(np.exp(x**2))
 
 
 
@@ -58,7 +58,7 @@ puntos_solus=[] #lista de puntos de las soluciones particulares
 iterar(x0, y0, funcion)
 pintar(puntos)
 
-
+#funciones particulares de la solución real
 iterar_solu(x0, funcion1)
 pintar(puntos_solus)
 puntos_solus=[]
