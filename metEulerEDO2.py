@@ -11,7 +11,7 @@ def funcion(x,u, v):
     #la función es y'' + a*y' + b*y = f(x)
     #donde a y b dependen de x 
     #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
-    return -1 * u - 1 * v + 1
+    return (-u - v + 1)
 
 
 def iterar(x, u, v, f): 
@@ -19,8 +19,8 @@ def iterar(x, u, v, f):
     while x <= xf:
         xn = x + h
         un = u + h * v
-        vn = v + h * (f(x, u, v))
-        iterar(xn, un, vn, f(xn, un, vn))
+        vn = v + h * (funcion(x, u, v))
+        iterar(xn, un, vn, funcion(xn, un, vn))
         puntos.append((xn, un))
         print(xn, un)
         return xn, un
