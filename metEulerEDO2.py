@@ -20,7 +20,7 @@ def iterar(x, u, v, f):
         xn = x + h
         un = u + h * v
         vn = v + h * (funcion(x, u, v))
-        iterar(xn, un, vn, funcion(xn, un, vn))
+        iterar(xn, un, vn, f)
         puntos.append((xn, un))
         print(xn, un)
         return xn, un
