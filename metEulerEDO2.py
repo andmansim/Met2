@@ -7,22 +7,20 @@ u(x)=y(x) y v(x)=y'(x)
 import matplotlib.pyplot as plt
 import numpy as np
 
-def funcion(x,y):
-    return (-2*x*(np.exp(x**2)*y-1))/(np.exp(x**2))
+def funcion(x,u, v):
+    #la función es y'' + a*y' + b*y = f(x)
+    #donde a y b dependen de x 
+    #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
+    return (-1 * u - 1 * v + 1)
 
-def valorA(x):
-    return -2*x
 
-def valorB(x):  
-    return 0*x
-
-def iterar(x, u, v, b, a, f): 
+def iterar(x, u, v, f): 
     '''Itera la función'''
     while x <= xf:
         xn = x + h
         un = u + h * v
-        vn = v + h * (-b * u - a * v + f(x))
-        iterar(xn, un, vn, valorB(xn), valorA(xn), f)
+        vn = v + h * f(x, u, v)
+        iterar(xn, un, vn, f(xn, un, vn))
         puntos.append((xn, un))
         print(xn, un)
         return xn, un
@@ -69,7 +67,7 @@ h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 puntos_solus=[] #lista de puntos de las soluciones particulares
 
-iterar(x0, u0, v0, valorB(x0), valorA(x0), funcion)
+iterar(x0, u0, v0, funcion)
 pintar(puntos)
 
 '''#funciones particulares de la solución real
