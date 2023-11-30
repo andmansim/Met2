@@ -11,7 +11,7 @@ def funcion(x,u, v):
     #la función es y'' + a*y' + b*y = f(x)
     #donde a y b dependen de x 
     #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
-    return (-1 * u - 1 * v + 1)
+    return -1 * u - 1 * v + 1
 
 
 def iterar(x, u, v, f): 
