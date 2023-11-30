@@ -19,7 +19,7 @@ def iterar(x, u, v, f):
     while x <= xf:
         xn = x + h
         un = u + h * v
-        vn = v + h * f(x, u, v)
+        vn = v + h * (f(x, u, v))
         iterar(xn, un, vn, f(xn, un, vn))
         puntos.append((xn, un))
         print(xn, un)
