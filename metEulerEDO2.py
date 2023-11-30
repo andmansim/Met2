@@ -10,6 +10,7 @@ import numpy as np
 def funcion(x,u, v):
     #la función es y'' + a*y' + b*y = f(x)
     #donde a y b dependen de x 
+    #u(x)=y(x) y v(x)=y'(x) 
     #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
     return (-u - v + 1)
 
