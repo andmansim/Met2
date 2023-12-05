@@ -77,6 +77,6 @@ for m in range (0, int(ene/2)):
     sumatorio = sum( (-1)**m * ( factorial(ene - m - 1) / ( factorial(m) * factorial(ene - 2*m-1) ) ) * (-2)**(ene-2*m-1) ) 
 vv = (ene/2) * sumatorio
 
-iterar(x0, uu, vv, funcion)
+iterar(x0, u0, v0, funcion)
 pintar(puntos)
 
