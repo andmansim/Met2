@@ -7,12 +7,12 @@ a y b dependen de xi, vi, ui y f(xi)
 import matplotlib.pyplot as plt
 import numpy as np
 
-def funcion(x, u, v):
+def funcion(x, u, v, n):
     '''la función es y'' + a*y' + b*y = f(x)'''
     #donde a y b dependen de x
     #u(x)=y(x) y v(x)=y'(x)
     #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
-    return (1-v-u)
+    return (-n**2 *u - x * v)/(1-x**2)
 
 def iterar(x, u, v, f): 
     '''Itera la función'''
@@ -64,6 +64,19 @@ n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
-iterar(x0, u0, v0,  funcion)
+ene = float(input('Introduce el valor de n: '))
+uu = (-1)**ene
+
+def factorial(numero):
+    resultado = 1
+    for i in range(1, numero +1):
+        resultado *= i
+    return resultado
+
+for m in range (0, int(ene/2)):
+    sumatorio =sum((-1)**m *(factorial(ene - m - 1)/(factorial(m) * factorial(ene - 2*m-1))) * (-2)**(ene-2*m-1)) 
+vv = (ene/2) * sumatorio
+
+iterar(x0, uu, vv, funcion)
 pintar(puntos)
 
