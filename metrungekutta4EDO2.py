@@ -12,7 +12,8 @@ def funcion(x, u, v):
     #donde a y b dependen de x
     #u(x)=y(x) y v(x)=y'(x)
     #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
-    return (-u - (v/x))
+    return (1-v-u)
+
 def iterar(x, u, v, f): 
     '''Itera la función'''
     while x <= xf:
@@ -56,13 +57,13 @@ def pintar(puntos):
 
 #main
 x0 = float(input('Introduce la x inicial: ')) #punto inicial
-y0 = float(input('Introduce la y inicial: ')) #punto inicial
+u0 = float(input('Introduce la u inicial (u = y(x)): ')) #punto inicial
+v0 = float(input("Introduce la v inicial (v = y'(x)): ")) #punto inicial
 xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
-iterar(x0, y0, funcion)
+iterar(x0, u0, v0,  funcion)
 pintar(puntos)
 
-#huele muy mal
