@@ -65,6 +65,7 @@ def pintar(puntosx, puntosy):
     plt.show()
 
 #main
+#Para lo de los conejos y zorros
 r = float(input('Introduce r: '))
 s = float(input('Introduce s: '))
 p = float(input('Introduce p: '))
