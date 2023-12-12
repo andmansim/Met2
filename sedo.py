@@ -8,7 +8,7 @@ def funcionx(x, u, v):
 
 def funciony (x, u, v):
     #Es la función de y'(t) = -r*u + s*u*v
-    #u(x)= x(t) y v(x)=y(t)
+    #u= x y v = y
     return -r*u + s*u*v
 
 def iterar(x, u, v, fx, fy): 
@@ -38,19 +38,30 @@ def iterar(x, u, v, fx, fy):
         vn = v + h*(a1*k12 + a2*k22 + a3*k32 + a4*k42) 
         
         iterar(xn, un, vn, fx, fy)
-        puntos.append((xn, un))
+        puntosx.append((xn, un))
+        puntosy.append((xn, vn))
         print(xn, un)
         return xn, un
 
 
-def pintar(puntos):
+def pintar(puntosx, puntosy):
     '''Pinta la gráfica'''
-    x = []
-    y = []
-    for i in puntos:
-        x.append(i[0])
-        y.append(i[1])
-    plt.plot(x, y)
+    x1 = []
+    y1 = []
+    
+    x2 = []
+    y2 = []
+    
+    for i in puntosx:
+        x1.append(i[0])
+        y1.append(i[1])
+        
+    for j in puntosy:
+        x2.append(j[0])
+        y2.append(j[1])
+        
+    plt.plot(x1, y1)
+    plt.plot(x2, y2)
     plt.show()
 
 #main
@@ -65,8 +76,9 @@ v0 = float(input("Introduce la y inicial (y(t)): ")) #punto inicial
 xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
-puntos = [] #lista de puntos
-
+puntosx = [] #lista de puntos
+puntosy = [] #lista de puntos
 iterar(x0, u0, v0, funcionx, funciony)
-pintar(puntos)
+pintar(puntosx, puntosy)
+
 
