@@ -2,14 +2,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def funcionx(x, u, v):
-    #Es la función de x'(t) = p*u -q*u*v
+    #Es la función de x'(t) = -v + u*(1 - u**2 + v**2)
     # u = x(t), v = y(t)
-    return p*u - q*u*v
+    return -v + u * (1 - u**2 - v**2)
 
 def funciony (x, u, v):
-    #Es la función de y'(t) = -r*u + s*u*v
+    #Es la función de y'(t) = u + v*(1 - u**2 - v**2)
     #u= x(t) y v = y(t)
-    return -r*u + s*u*v
+    return u + v * (1 - u**2 - v**2)
 
 def iterar(x, u, v, fx, fy): 
     '''Itera la función'''
@@ -38,37 +38,25 @@ def iterar(x, u, v, fx, fy):
         vn = v + h*(a1*k12 + a2*k22 + a3*k32 + a4*k42) 
         
         iterar(xn, un, vn, fx, fy)
-        puntosx.append((xn, un))
-        puntosy.append((xn, vn))
-        print(xn, un)
-        return xn, un
+        puntos.append((un, vn))
+        print(un, vn)
+        return un, vn
 
 
-def pintar(puntosx, puntosy):
+def pintar(puntosx):
     '''Pinta la gráfica'''
     x1 = []
     y1 = []
     
-    x2 = []
-    y2 = []
     
     for i in puntosx:
         x1.append(i[0])
         y1.append(i[1])
-        
-    for j in puntosy:
-        x2.append(j[0])
-        y2.append(j[1])
-        
+
     plt.plot(x1, y1)
-    plt.plot(x2, y2)
     plt.show()
 
 #main
-r = float(input('Introduce r: '))
-s = float(input('Introduce s: '))
-p = float(input('Introduce p: '))
-q = float(input('Introduce q: '))
 
 x0 = float(input('Introduce la t inicial: ')) #punto inicial
 u0 = float(input('Introduce la x inicial (x(t)): ')) #punto inicial
@@ -76,9 +64,9 @@ v0 = float(input("Introduce la y inicial (y(t)): ")) #punto inicial
 xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
-puntosx = [] #lista de puntos
-puntosy = [] #lista de puntos
+puntos = [] #lista de puntos
+
 iterar(x0, u0, v0, funcionx, funciony)
-pintar(puntosx, puntosy)
+pintar(puntos)
 
 
