@@ -1,9 +1,3 @@
-'''
-Ahora es vectorial. Para las kij hemos cambiado las f por el vector u v prima, donde la
-a y b dependen de xi, vi, ui y f(xi)
-'''
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 
