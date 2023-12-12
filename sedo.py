@@ -13,36 +13,37 @@ def funciony (x, u, v):
 
 def iterar(x, u, v, fx, fy): 
     '''Itera la función'''
-    while x <= xf:
-        #constantes (pesos)
-        a1 = 1/6
-        a2 = 1/3
-        a3 = 1/3
-        a4 = 1/6
-        
-        #Pendientes
-        k11 = fx(x, u, v) 
-        k12 = fy(x, u, v) 
-        k21 = fx(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
-        k22 = fy(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
-        k31 = fx(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
-        k32 = fy(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
-        k41 = fx(x + h, u + h*k31, v + h*k32)
-        k42 = fy(x + h, u + h*k31, v + h*k32)
-        
-        
-        #función
-        xn = x + h
-        un = u + h*(a1*k11 + a2*k21 + a3*k31 + a4*k41)
-        vn = v + h*(a1*k12 + a2*k22 + a3*k32 + a4*k42) 
-        
-        iterar(xn, un, vn, fx, fy)
-        puntos.append((xn, un, vn))
-        
-        print('Datos de los conejos',xn, un)
-        print('Datos de los zorros', xn, vn)
-        return xn, un, vn
-
+    if x > xf:
+        return x, u, v
+    #constantes (pesos)
+    a1 = 1/6
+    a2 = 1/3
+    a3 = 1/3
+    a4 = 1/6
+    
+    #Pendientes
+    k11 = fx(x, u, v) 
+    k12 = fy(x, u, v) 
+    k21 = fx(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
+    k22 = fy(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
+    k31 = fx(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
+    k32 = fy(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
+    k41 = fx(x + h, u + h*k31, v + h*k32)
+    k42 = fy(x + h, u + h*k31, v + h*k32)
+    
+    
+    #función
+    xn = x + h
+    un = u + h*(a1*k11 + a2*k21 + a3*k31 + a4*k41)
+    vn = v + h*(a1*k12 + a2*k22 + a3*k32 + a4*k42) 
+    
+    iterar(xn, un, vn, fx, fy)
+    puntos.append((xn, un, vn))
+    
+    print('Datos de los conejos',xn, un)
+    print('Datos de los zorros', xn, vn)
+    
+    
 
 def pintar(puntos):
     '''Pinta la gráfica'''
