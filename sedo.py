@@ -39,6 +39,7 @@ def iterar(x, u, v, fx, fy):
         
         iterar(xn, un, vn, fx, fy)
         puntos.append((xn, un, vn))
+        
         print('Datos de los conejos',xn, un)
         print('Datos de los zorros', xn, vn)
         return xn, un, vn
