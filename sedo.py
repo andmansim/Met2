@@ -15,6 +15,7 @@ def iterar(x, u, v, fx, fy):
     '''Itera la función'''
     if x > xf:
         return x, u, v
+    
     #constantes (pesos)
     a1 = 1/6
     a2 = 1/3
@@ -43,7 +44,7 @@ def iterar(x, u, v, fx, fy):
     print('Datos de los conejos',xn, un)
     print('Datos de los zorros', xn, vn)
     
-    
+    return xn, un, vn
 
 def pintar(puntos):
     '''Pinta la gráfica'''
