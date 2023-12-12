@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#MIRAR FUNCIONES A VER SI ALGUNA ESTÁ MAL
+
 def funcionx(x, u, v):
     #Es la función de x'(t) = p*u -q*u*v
     # u = x(t), v = y(t)
