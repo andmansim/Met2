@@ -21,7 +21,7 @@ def iterar(x, u, v, fx, fy):
         a4 = 1/6
         
         #Pendientes
-        k11 = fx(x, u, v) #función especial que llama a una función especial dependiendo del sistema que nos den
+        k11 = fx(x, u, v) 
         k12 = fy(x, u, v) 
         k21 = fx(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
         k22 = fy(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
@@ -29,7 +29,6 @@ def iterar(x, u, v, fx, fy):
         k32 = fy(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
         k41 = fx(x + h, u + h*k31, v + h*k32)
         k42 = fy(x + h, u + h*k31, v + h*k32)
-        
         
         
         #función
