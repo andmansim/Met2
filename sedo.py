@@ -1,15 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def funcion(x, u, v, n):
-    '''la función es y'' + a*y' + b*y = f(x)'''
-    #donde a y b dependen de x
-    #u(x)=y(x) y v(x)=y'(x)
-    #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
-    #Se hacer para ec no lineales.  
-    return (-n**2 *u - x * v)/(1-x**2)
+def funcionx(x, u, v):
+    #Es la función de x'(t) = p*u -q*u*v
+    # u = x, v = y
+    return p*u - q*u*v
 
-def iterar(x, u, v, f): 
+def funciony (x, u, v):
+    #Es la función de y'(t) = -r*u + s*u*v
+    #u(x)= x(t) y v(x)=y(t)
+    return -r*u + s*u*v
+
+def iterar(x, u, v, fx, fy): 
     '''Itera la función'''
     while x <= xf:
         #constantes (pesos)
@@ -19,14 +21,15 @@ def iterar(x, u, v, f):
         a4 = 1/6
         
         #Pendientes
-        k11 = v
-        k12 = f(x, u, v) 
-        k21 = v + (h/2)*k11
-        k22 = f(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
-        k31 = v + (h/2)*k21
-        k32 = f(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
-        k41 = v + h*k31
-        k42 = f(x +h, u + h*k31, v + h*k32)
+        k11 = fx(x, u, v) #función especial que llama a una función especial dependiendo del sistema que nos den
+        k12 = fy(x, u, v) 
+        k21 = fx(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
+        k22 = fy(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
+        k31 = fx(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
+        k32 = fy(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
+        k41 = fx(x +h, u + h*k31, v + h*k32)
+        k42 = fy(x +h, u + h*k31, v + h*k32)
+        
         
         
         #función
@@ -34,7 +37,7 @@ def iterar(x, u, v, f):
         un = u + h*(a1*k11 + a2*k21 + a3*k31 + a4*k41)
         vn = v + h*(a1*k12 + a2*k22 + a3*k32 + a4*k42) 
         
-        iterar(xn, un,vn, f)
+        iterar(xn, un, vn, fx, fy)
         puntos.append((xn, un))
         print(xn, un)
         return xn, un
@@ -51,27 +54,19 @@ def pintar(puntos):
     plt.show()
 
 #main
-x0 = float(input('Introduce la x inicial: ')) #punto inicial
-u0 = float(input('Introduce la u inicial (u = y(x)): ')) #punto inicial
-v0 = float(input("Introduce la v inicial (v = y'(x)): ")) #punto inicial
+r = float(input('Introduce r: '))
+s = float(input('Introduce s: '))
+p = float(input('Introduce p: '))
+q = float(input('Introduce q: '))
+
+x0 = float(input('Introduce la t inicial: ')) #punto inicial
+u0 = float(input('Introduce la x inicial (x(t)): ')) #punto inicial
+v0 = float(input("Introduce la y inicial (y(t)): ")) #punto inicial
 xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
-ene = float(input('Introduce el valor de n: '))
-uu = (-1)**ene
-
-def factorial(numero):
-    resultado = 1
-    for i in range(1, int(numero) +1):
-        resultado *= i
-    return resultado
-
-for m in range (0, int(ene/2)):
-    sumatorio = sum( (-1)**m * ( factorial(ene - m - 1) / ( factorial(m) * factorial(ene - 2*m-1) ) ) * (-2)**(ene-2*m-1) ) 
-vv = (ene/2) * sumatorio
-
-iterar(x0, u0, v0, funcion)
+iterar(x0, u0, v0, funcionx, funciony)
 pintar(puntos)
 
