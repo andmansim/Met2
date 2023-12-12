@@ -27,8 +27,8 @@ def iterar(x, u, v, fx, fy):
         k22 = fy(x +(h/2), u + (h/2)*k11, v + (h/2)*k12)
         k31 = fx(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
         k32 = fy(x +(h/2), u + (h/2)*k21, v + (h/2)*k22)
-        k41 = fx(x +h, u + h*k31, v + h*k32)
-        k42 = fy(x +h, u + h*k31, v + h*k32)
+        k41 = fx(x + h, u + h*k31, v + h*k32)
+        k42 = fy(x + h, u + h*k31, v + h*k32)
         
         
         
@@ -38,30 +38,26 @@ def iterar(x, u, v, fx, fy):
         vn = v + h*(a1*k12 + a2*k22 + a3*k32 + a4*k42) 
         
         iterar(xn, un, vn, fx, fy)
-        puntosx.append((xn, un))
-        puntosy.append((xn, vn))
-        print(xn, un)
-        return xn, un
+        puntos.append((xn, un, vn))
+        print('Datos de los conejos',xn, un)
+        print('Datos de los zorros', xn, vn)
+        return xn, un, vn
 
 
-def pintar(puntosx, puntosy):
+def pintar(puntos):
     '''Pinta la gráfica'''
     x1 = []
     y1 = []
-    
-    x2 = []
     y2 = []
     
-    for i in puntosx:
+    for i in puntos:
         x1.append(i[0])
         y1.append(i[1])
+        y2.append(i[2])
         
-    for j in puntosy:
-        x2.append(j[0])
-        y2.append(j[1])
         
     plt.plot(x1, y1)
-    plt.plot(x2, y2)
+    plt.plot(x1, y2)
     plt.show()
 
 #main
@@ -77,9 +73,8 @@ v0 = float(input("Introduce la y inicial (y(t)): ")) #punto inicial
 xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
-puntosx = [] #lista de puntos
-puntosy = [] #lista de puntos
+puntos = [] #lista de puntos
 iterar(x0, u0, v0, funcionx, funciony)
-pintar(puntosx, puntosy)
+pintar(puntos)
 
 
