@@ -5,13 +5,15 @@ def funcion(x,y):
     return (-2*x*(np.exp(x**2)*y-1))/(np.exp(x**2))
 def iterar(x, y, f): 
     '''Itera la función'''
-    while x <= xf:
-        xn = x + h
-        yn = y + h * f (x,y)
-        iterar(xn, yn, f)
-        puntos.append((xn, yn))
-        print(xn, yn)
-        return xn, yn
+    if x > xf:
+        return x, y
+  
+    xn = x + h
+    yn = y + h * f (x,y)
+    iterar(xn, yn, f)
+    puntos.append((xn, yn))
+    print(xn, yn)
+    return xn, yn
 
 
 def pintar(puntos):

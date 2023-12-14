@@ -6,13 +6,15 @@ def funcion(x,y):
 
 def iterar(x, y, f): 
     '''Itera la función'''
-    while x <= xf:
-        xn = x + h
-        yn = y + h * f (x + (h/2), y+ (h/2) * f(x,y))
-        iterar(xn, yn, f)
-        puntos.append((xn, yn))
-        print(xn, yn)
-        return xn, yn
+    if x > xf:
+        return x, y
+    
+    xn = x + h
+    yn = y + h * f (x + (h/2), y+ (h/2) * f(x,y))
+    iterar(xn, yn, f)
+    puntos.append((xn, yn))
+    print(xn, yn)
+    return xn, yn
 
 
 def pintar(puntos):
