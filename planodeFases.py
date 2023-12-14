@@ -1,15 +1,17 @@
+#ES EL RUNGE KUTTA 4 PARA SISTEMAS DE ECUACIONES DIFERENCIALES
+
 import matplotlib.pyplot as plt
 import numpy as np
 
 def funcionx(x, u, v):
-    #Es la función de x'(t) = -v + u*(1 - u**2 + v**2)
+    #Ponemos la función x'(t) que nos da el enunciado
     # u = x(t), v = y(t)
-    return -v + u * (1 - u**2 - v**2)
+    return v
 
 def funciony (x, u, v):
-    #Es la función de y'(t) = u + v*(1 - u**2 - v**2)
+    #Ponemos la función y'(t) que nos da el enunciado
     #u= x(t) y v = y(t)
-    return u + v * (1 - u**2 - v**2)
+    return -u + u **2
 
 def iterar(x, u, v, fx, fy): 
     '''Itera la función'''
@@ -48,7 +50,6 @@ def pintar(puntosx):
     x1 = []
     y1 = []
     
-    
     for i in puntosx:
         x1.append(i[0])
         y1.append(i[1])
@@ -58,10 +59,18 @@ def pintar(puntosx):
 
 #main
 
+    
 x0 = float(input('Introduce la t inicial: ')) #punto inicial
-u0 = float(input('Introduce la x inicial (x(t)): ')) #punto inicial
-v0 = float(input("Introduce la y inicial (y(t)): ")) #punto inicial
 xf = float(input('Introduce el extremo final: ')) #punto final
+control = True
+while control:
+    u0 = float(input('Introduce la x inicial (x(t)): ')) #punto inicial
+    v0 = float(input("Introduce la y inicial (y(t)): ")) #punto inicial
+    control= input('Quieres seguir poniendo puntos iniciales? (s/n): ')
+    if control == 's':
+        control = True
+    else:
+        control = False
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
