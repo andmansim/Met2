@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-#MIRAR FUNCIONES A VER SI ALGUNA ESTÁ MAL
+#Ya va
 
 def funcionx(x, u, v):
     #Es la función de x'(t) = p*u -q*u*v
@@ -9,9 +9,9 @@ def funcionx(x, u, v):
     return p*u - q*u*v
 
 def funciony (x, u, v):
-    #Es la función de y'(t) = -r*u + s*u*v
+    #Es la función de y'(t) = -r*v + s*u*v
     #u= x(t) y v = y(t)
-    return -r*u + s*u*v
+    return -r*v + s*u*v
 
 def iterar(x, u, v, fx, fy): 
     '''Itera la función'''
