@@ -38,19 +38,21 @@ def iterar(x, u, v, fx, fy):
 
 def pintar(puntosx):
     for i, punt in enumerate(puntosx):
-        x = punto_inicial[0]
-        y = punto_inicial[1]
+        u = punt[0]
+        v = punt[1]
         
-        x_vals = [x]
-        y_vals = [y]
+        x_vals = [x0]
+        u_vals = [u]
+        v_vals = [v]
         
-        while x0 < xf:
-            x, y = iterar(x_vals[-1], y_vals[-1] , funcionx, funciony)
+        while x_vals[-1] < xf:
+            x, u, v = iterar(x_vals[-1], u_vals[-1], v_vals[-1], funcionx, funciony)
             x_vals.append(x)
-            y_vals.append(y)
-            print(x, y)
+            u_vals.append(u)
+            v_vals.append(v)
+            print(u, v)
             
-        plt.plot(x_vals, y_vals, label=f'Punto inicial {i + 1}')
+        plt.plot(u_vals, v_vals, label=f'Punto inicial {i + 1}')
         
     plt.xlabel('x(t)')
     plt.ylabel('y(t)')
