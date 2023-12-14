@@ -77,8 +77,6 @@ n = int(input('Número de divisiones: '))
 h = (xf - x0)/n
 puntos = []
 puntos_solu = []
-
-
 pintar(puntos_iniciales)
 
 
