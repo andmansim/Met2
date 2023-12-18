@@ -4,7 +4,8 @@ import numpy as np
 #La función cambia con el ejercicio
 #En el resultado coger el número que más se parezca al punto inicial dado
 def funcion(x,y):
-    return (-2*x*(np.exp(x**2)*y-1))/(np.exp(x**2))
+    #es despejar y'(x)
+    return y - x**2 +1 
 
 def iterar(x, y, f): 
     '''Itera la función'''
@@ -62,7 +63,7 @@ puntos_solus=[] #lista de puntos de las soluciones particulares
 
 iterar(x0, y0, funcion)
 pintar(puntos)
-
+'''
 #funciones particulares de la solución real
 iterar_solu(x0, funcion1)
 pintar(puntos_solus)
@@ -71,7 +72,7 @@ iterar_solu(x0, funcion2)
 pintar(puntos_solus)
 puntos_solus=[]
 iterar_solu(x0, funcion3)
-pintar(puntos_solus)
+pintar(puntos_solus)'''
 
 
     
