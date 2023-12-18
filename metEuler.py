@@ -9,70 +9,83 @@ def funcion(x,y):
 
 def iterar(x, y, f): 
     '''Itera la función'''
+    
     if x > xf:
-        return x, y
+        return [(x, y)]
   
     xn = x + h
     yn = y + h * f (x,y)
-    iterar(xn, yn, f)
-    puntos.append((xn, yn))
+    #iterar(xn, yn, f)
+    #puntos1.append((xn, yn))
     print(xn, yn)
-    return xn, yn
+    #return xn, yn
+    return [(x, y)] + iterar(xn, yn, f)
 
-
-def pintar(puntos):
+def pintar(puntos,c1, c2, c3):
     '''Pinta la gráfica'''
-    x = []
-    y = []
-    for i in puntos:
-        x.append(i[0])
-        y.append(i[1])
-    plt.plot(x, y)
+    if isinstance(puntos[0], tuple):
+        # Si hay solo un punto, lo convertimos en una lista de un solo elemento
+        puntos = [puntos]
+
+    for i, puntos_funcion in enumerate(puntos):
+        x = [j[0] for j in puntos_funcion]
+        y = [j[1] for j in puntos_funcion]
+        plt.plot(x, y, label=f'Función {i+1}')
+
+    plt.legend()
     plt.show()
 
 
-#Código para pintar las soluciones particulares
+#Código para pintar las soluciones particulares de la solución real
 def iterar_solu(x,f): 
     '''Itera la función'''
-    while x <= xf:
-        xn = x + h
-        yn =  h * f (x)
-        iterar_solu(xn, f)
-        puntos_solus.append((xn, yn))
-        print(xn, yn)
-        return xn, yn
+    
+    if x > xf:
+        
+        return [(x)]
+    
+    xn = x + h
+    yn =  h * f (x, c)
+    #iterar_solu(xn, f)
+    #puntos_solus_part.append((xn, yn))
+    print(xn, yn)
+    return [(x)] + iterar_solu(xn, f)
 
 
-def funcion1(x):
-    return (x**2)/(np.exp(x**2))
-def funcion2(x):
-    return (x**2 + 1)/(np.exp(x**2))
-def funcion3(x):
-    return ((x**2) -1)/(np.exp(x**2))
-
+def funcion_particular (x, c):
+    #Ponemos la solución de la edo con la C sacada en dicho punto
+    return (x + 1)**2 + np.exp(x) + c
 
 
 #main
-x0 = float(input('Introduce la x inicial: ')) #punto inicial
-y0 = float(input('Introduce la y inicial: ')) #punto inicial
+puntos = [] #lista de puntos
+puntos_solus = [] #lista de puntos de las soluciones particulares
 xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
-h = (xf - x0)/n #intervalo pequeño
-puntos = [] #lista de puntos
-puntos_solus=[] #lista de puntos de las soluciones particulares
 
-iterar(x0, y0, funcion)
-pintar(puntos)
-'''
+for i in range(0, 3):
+    puntos1 = []
+    print(f'Punto inicial {i}')
+    x0 = float(input('Introduce la x inicial: ')) #punto inicial
+    y0 = float(input('Introduce la y inicial: ')) #punto inicial
+    h = (xf - x0)/n #intervalo pequeño
+    puntos.append(iterar(x0, y0, funcion))
+
+#función real
+#iterar(x0, y0, funcion)
+#pintar(puntos, 0, 0, 0)
+
 #funciones particulares de la solución real
-iterar_solu(x0, funcion1)
-pintar(puntos_solus)
-puntos_solus=[]
-iterar_solu(x0, funcion2)
-pintar(puntos_solus)
-puntos_solus=[]
-iterar_solu(x0, funcion3)
-pintar(puntos_solus)'''
+for i in range(0, 3):
+    puntos_solus1 = []
+    print(f'Punto inicial {i}')
+    x0 = float(input('Introduce la x inicial: ')) #punto inicial
+    c = float(input('Introduce la constante C: '))
+    puntos_solus.append(iterar_solu(x0, funcion_particular))
+    
+pintar(puntos_solus, 0, 0, 0)
+
+
 
 
     
