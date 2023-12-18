@@ -42,25 +42,6 @@ def pintar(puntos):
     plt.show()
 
 
-#Código para pintar las soluciones particulares
-def iterar_solu(x,f): 
-    '''Itera la función'''
-    while x <= xf:
-        xn = x + h
-        yn =  h * f (x)
-        iterar_solu(xn, f)
-        puntos_solus.append((xn, yn))
-        print(xn, yn)
-        return xn, yn
-
-
-def funcion1(x):
-    return (x**2)/(np.exp(x**2))
-def funcion2(x):
-    return (x**2 + 1)/(np.exp(x**2))
-
-
-
 
 #main
 x0 = float(input('Introduce la x inicial: ')) #punto inicial
@@ -70,7 +51,6 @@ xf = float(input('Introduce el extremo final: ')) #punto final
 n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
-puntos_solus=[] #lista de puntos de las soluciones particulares
 
 iterar(x0, u0, v0, funcion)
 pintar(puntos)
