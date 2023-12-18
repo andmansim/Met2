@@ -3,7 +3,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-#Se cambian el return de las funciones en función del problema
+#La función cambia con el ejercicio
+#En el resultado coger el número que más se parezca al punto inicial dado
 def funcionx(x, u, v):
     #Ponemos la función x'(t) que nos da el enunciado
     # u = x(t), v = y(t)

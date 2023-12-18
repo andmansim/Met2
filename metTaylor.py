@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#La función cambia con el ejercicio
+#En el resultado coger el número que más se parezca al punto inicial dado
 def funcion(x,y):
     return (2-3*x -y)/(x-1)
 

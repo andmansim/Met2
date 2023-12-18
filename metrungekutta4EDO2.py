@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #La funciíon cambia según el problema
-def funcion(x, u, v, n):
+def funcion(x, u, v):
     '''la función es y'' + a*y' + b*y = f(x)'''
     #donde a y b dependen de x
     #u(x)=y(x) y v(x)=y'(x)
     #el return es y'' = f(x) - a*y' - b*y
     #Se hace para ec no lineales.  
-    return (-n**2 *u - x * v)/(1-x**2)
+    return (- (n**2) * u - x * v)/(1 - x**2)
 
 def iterar(x, u, v, f): 
     '''Itera la función'''
@@ -69,7 +69,10 @@ n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
-#Ejericio en concreto con un factorial y sumatorio
+'''
+#Ejericio en concreto con un factorial y sumatorio. 
+#Faltaria poner ls n a las funciones y da error pq dibides entre 0
+
 ene = float(input('Introduce el valor de n: '))
 uu = (-1)**ene
 
@@ -79,11 +82,12 @@ def factorial(numero):
         resultado *= i
     return resultado
 
+sumatorio = 0
 for m in range (0, math.floor(ene/2)):
-    sum( (-1)**m * ( factorial( (ene - m - 1)) / ( factorial(m) * factorial(ene - 2*m-1) ) ) * (-2)**(ene-2*m-1) ) 
-vv = (ene/2) 
+    sumatorio +=  (-1)**m * ( factorial( (ene - m - 1)) / ( factorial(m) * factorial(ene - 2*m-1) ) ) * (-2)**(ene-2*m-1) 
+vv = (ene/2) *sumatorio
 iterar(x0, uu, vv, funcion)
-
-#iterar(x0, u0, v0, funcion)
+'''
+iterar(x0, u0, v0, funcion)
 pintar(puntos)
 

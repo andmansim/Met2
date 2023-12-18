@@ -7,7 +7,9 @@ u(x)=y(x) y v(x)=y'(x)
 import matplotlib.pyplot as plt
 import numpy as np
 
-#Cambiamos el return de la función para cada problema
+#La función cambia con el ejercicio
+#En el resultado coger el número que más se parezca al punto inicial dado
+
 def funcion(x,u, v):
     #la función es y'' + a*y' + b*y = f(x)
     #donde a y b dependen de x 
