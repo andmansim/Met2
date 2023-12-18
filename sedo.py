@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-#Ya va
+#Las funciones no se modifican, solo se pone los datos que pide en la terminal 
 
 def funcionx(x, u, v):
     #Es la función de x'(t) = p*u -q*u*v

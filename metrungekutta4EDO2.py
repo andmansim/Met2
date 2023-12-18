@@ -2,17 +2,18 @@
 Ahora es vectorial. Para las kij hemos cambiado las f por el vector u v prima, donde la
 a y b dependen de xi, vi, ui y f(xi)
 '''
-
+import math #math.floor es para redondear a la baja (7.8 --> 7)
 
 import matplotlib.pyplot as plt
 import numpy as np
 
+#La funciíon cambia según el problema
 def funcion(x, u, v, n):
     '''la función es y'' + a*y' + b*y = f(x)'''
     #donde a y b dependen de x
     #u(x)=y(x) y v(x)=y'(x)
-    #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
-    #Se hacer para ec no lineales.  
+    #el return es y'' = f(x) - a*y' - b*y
+    #Se hace para ec no lineales.  
     return (-n**2 *u - x * v)/(1-x**2)
 
 def iterar(x, u, v, f): 
@@ -68,6 +69,7 @@ n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
+#Ejericio en concreto con un factorial y sumatorio
 ene = float(input('Introduce el valor de n: '))
 uu = (-1)**ene
 
@@ -77,10 +79,11 @@ def factorial(numero):
         resultado *= i
     return resultado
 
-for m in range (0, int(ene/2)):
-    sumatorio = sum( (-1)**m * ( factorial(ene - m - 1) / ( factorial(m) * factorial(ene - 2*m-1) ) ) * (-2)**(ene-2*m-1) ) 
-vv = (ene/2) * sumatorio
+for m in range (0, math.floor(ene/2)):
+    sum( (-1)**m * ( factorial( (ene - m - 1)) / ( factorial(m) * factorial(ene - 2*m-1) ) ) * (-2)**(ene-2*m-1) ) 
+vv = (ene/2) 
+iterar(x0, uu, vv, funcion)
 
-iterar(x0, u0, v0, funcion)
+#iterar(x0, u0, v0, funcion)
 pintar(puntos)
 

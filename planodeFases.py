@@ -3,15 +3,16 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#Se cambian el return de las funciones en función del problema
 def funcionx(x, u, v):
     #Ponemos la función x'(t) que nos da el enunciado
     # u = x(t), v = y(t)
-    return v
+    return -v + u * (1- u**2 -v**2)
 
 def funciony (x, u, v):
     #Ponemos la función y'(t) que nos da el enunciado
     #u= x(t) y v = y(t)
-    return -u + u**2
+    return u + v * (1- u**2 -v**2)
 
 
 def iterar(x, u, v, fx, fy):

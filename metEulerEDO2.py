@@ -7,12 +7,13 @@ u(x)=y(x) y v(x)=y'(x)
 import matplotlib.pyplot as plt
 import numpy as np
 
+#Cambiamos el return de la función para cada problema
 def funcion(x,u, v):
     #la función es y'' + a*y' + b*y = f(x)
     #donde a y b dependen de x 
     #u(x)=y(x) y v(x)=y'(x) 
-    #sería (-b * u -a * v + f(x)) = y''(x),  donde sustituimos b, a y f(x)
-    return (-u - (v/x))
+    #el return es y'' = f(x) - a*y' - b*y
+    return 1-u-v
 
 
 def iterar(x, u, v, f): 
