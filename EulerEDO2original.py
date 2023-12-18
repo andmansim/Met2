@@ -11,6 +11,7 @@ import numpy as np
 #En el resultado coger el número que más se parezca al punto inicial dado
 
 def funcion(x,u, v):
+    #la función es y'' + a*y' + b*y = f(x)
     #donde a y b dependen de x 
     #u(x)=y(x) y v(x)=y'(x) 
     #el return es y'' = f(x) - a*y' - b*y
@@ -75,6 +76,13 @@ puntos_solus=[] #lista de puntos de las soluciones particulares
 iterar(x0, u0, v0, funcion)
 pintar(puntos)
 
+'''#funciones particulares de la solución real
+iterar_solu(x0, funcion1)
+pintar(puntos_solus)
+puntos_solus=[]
+iterar_solu(x0, funcion2)
+pintar(puntos_solus)
+puntos_solus=[]'''
 
 
 

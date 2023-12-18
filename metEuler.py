@@ -19,10 +19,7 @@ def iterar(x, y, f):
   
     xn = x + h
     yn = y + h * f (x,y)
-    #iterar(xn, yn, f)
-    #puntos1.append((xn, yn))
     print(xn, yn)
-    #return xn, yn
     return [(x, y)] + iterar(xn, yn, f)
 
 
@@ -36,8 +33,6 @@ def iterar_solu(x,f, c):
     
     xn = x + h
     yn =  h * f (x, c)
-    #iterar_solu(xn, f)
-    #puntos_solus_part.append((xn, yn))
     print(xn, yn)
     return [(x, f(x, c))] + iterar_solu(xn, f, c)
 
