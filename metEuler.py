@@ -7,6 +7,10 @@ def funcion(x,y):
     #es despejar y'(x)
     return y - x**2 +1 
 
+def funcion_particular (x, c):
+    #Ponemos la solución de la edo con la C sacada en dicho punto
+    return (x + 1)**2 + np.exp(x) + c
+
 def iterar(x, y, f): 
     '''Itera la función'''
     
@@ -21,6 +25,25 @@ def iterar(x, y, f):
     #return xn, yn
     return [(x, y)] + iterar(xn, yn, f)
 
+
+
+#Código para pintar las soluciones particulares de la solución real
+def iterar_solu(x,f, c): 
+    '''Itera la función'''
+    
+    if x > xf:
+        
+        return [(x, f(x, c))]
+    
+    xn = x + h
+    yn =  h * f (x, c)
+    #iterar_solu(xn, f)
+    #puntos_solus_part.append((xn, yn))
+    print(xn, yn)
+    return [(x, yn)] + iterar_solu(xn, f, c)
+
+
+
 def pintar(puntos,c1, c2, c3):
     '''Pinta la gráfica'''
     if isinstance(puntos[0], tuple):
@@ -34,28 +57,6 @@ def pintar(puntos,c1, c2, c3):
 
     plt.legend()
     plt.show()
-
-
-#Código para pintar las soluciones particulares de la solución real
-def iterar_solu(x,f): 
-    '''Itera la función'''
-    
-    if x > xf:
-        
-        return [(x)]
-    
-    xn = x + h
-    yn =  h * f (x, c)
-    #iterar_solu(xn, f)
-    #puntos_solus_part.append((xn, yn))
-    print(xn, yn)
-    return [(x)] + iterar_solu(xn, f)
-
-
-def funcion_particular (x, c):
-    #Ponemos la solución de la edo con la C sacada en dicho punto
-    return (x + 1)**2 + np.exp(x) + c
-
 
 #main
 puntos = [] #lista de puntos
@@ -78,10 +79,11 @@ for i in range(0, 3):
 #funciones particulares de la solución real
 for i in range(0, 3):
     puntos_solus1 = []
-    print(f'Punto inicial {i}')
+    print('Soluciones particulares')
+    print(f'C {i}')
     x0 = float(input('Introduce la x inicial: ')) #punto inicial
     c = float(input('Introduce la constante C: '))
-    puntos_solus.append(iterar_solu(x0, funcion_particular))
+    puntos_solus.append(iterar_solu(x0, funcion_particular, c))
     
 pintar(puntos_solus, 0, 0, 0)
 
