@@ -5,7 +5,7 @@ import numpy as np
 #En el resultado coger el número que más se parezca al punto inicial dado
 def funcion(x,y):
     #es despejar y'(x)
-    return y - x**2 +1 
+    return 9.8 - y * (0.4/(10 - 0.1 * x)) 
 
 def funcion_particular (x, c):
     #Ponemos la solución de la edo con la C sacada en dicho punto

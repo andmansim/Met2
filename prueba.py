@@ -5,7 +5,7 @@ import numpy as np
 #En el resultado coger el número que más se parezca al punto inicial dado
 def funcion(x,y):
     #es despejar y'(x)
-    return y - x**2 +1 
+    return 9.8 - y * (0.5/(10))
 
 def funcion_particular1 (x):
     #Ponemos la solución de la edo con la C sacada en dicho punto
@@ -73,7 +73,7 @@ iterar(x0, y0, funcion)
 pintar(puntos)
 
 #funciones particulares de la solución real
-iterar_solu(x0, funcion_particular1)  
+'''iterar_solu(x0, funcion_particular1)  
 pintar(puntos_solus)
 
 puntos_solus = []
@@ -82,4 +82,4 @@ pintar(puntos_solus)
 
 puntos_solus = []
 iterar_solu(x0, funcion_particular3)  
-pintar(puntos_solus)
+pintar(puntos_solus)'''
