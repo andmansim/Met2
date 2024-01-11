@@ -1,21 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#ES EL MET DE EULER PERO NO PINTA LAS SOLUCIONES PARTICULARES, SOLO LA REAL
+
 #La función cambia con el ejercicio
 #En el resultado coger el número que más se parezca al punto inicial dado
 def funcion(x,y):
     #es despejar y'(x)
     return 9.8 - y * (0.5/(10))
 
-def funcion_particular1 (x):
-    #Ponemos la solución de la edo con la C sacada en dicho punto
-    return (x + 1)**2 + ((-0.5) * np.exp(x))
-
-def funcion_particular2 (x):
-    return (x + 1)**2 + ((-1) * np.exp(x))
-
-def funcion_particular3 (x):
-    return (x + 1)**2 + ((-2) * np.exp(x))
 
 def iterar(x, y, f): 
     '''Itera la función'''
@@ -72,14 +65,4 @@ iterar(x0, y0, funcion)
 #función real
 pintar(puntos)
 
-#funciones particulares de la solución real
-'''iterar_solu(x0, funcion_particular1)  
-pintar(puntos_solus)
 
-puntos_solus = []
-iterar_solu(x0, funcion_particular2)  
-pintar(puntos_solus)
-
-puntos_solus = []
-iterar_solu(x0, funcion_particular3)  
-pintar(puntos_solus)'''
