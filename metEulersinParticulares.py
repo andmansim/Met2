@@ -7,8 +7,7 @@ import numpy as np
 #En el resultado coger el número que más se parezca al punto inicial dado
 def funcion(x,y):
     #es despejar y'(x)
-    return 9.8 - y * (0.5/(10))
-
+    return -2*x * (np.exp(x**2)*y - 1)/(np.exp(x**2))
 
 def iterar(x, y, f): 
     '''Itera la función'''
