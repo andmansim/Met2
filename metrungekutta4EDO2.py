@@ -14,7 +14,7 @@ def funcion(x, u, v):
     #u(x)=y(x) y v(x)=y'(x)
     #el return es y'' = f(x) - a*y' - b*y
     #Se hace para ec no lineales.  
-    return (- (n**2) * u - x * v)/(1 - x**2)
+    return (- (ene**2) * u - x * v)/(1 - x**2)
 
 def iterar(x, u, v, f): 
     '''Itera la función'''
@@ -69,8 +69,8 @@ n = int(input('Número de divisiones: '))
 h = (xf - x0)/n #intervalo pequeño
 puntos = [] #lista de puntos
 
-'''
-#Ejericio en concreto con un factorial y sumatorio. 
+
+'''#Ejericio en concreto con un factorial y sumatorio. 
 #Faltaria poner ls n a las funciones y da error pq dibides entre 0
 
 ene = float(input('Introduce el valor de n: '))

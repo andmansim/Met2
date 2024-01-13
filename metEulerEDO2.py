@@ -14,7 +14,7 @@ def funcion(x,u, v):
     #donde a y b dependen de x 
     #u(x)=y(x) y v(x)=y'(x) 
     #el return es y'' = f(x) - a*y' - b*y
-    return 1-u-v
+    return np.exp(-2*x)/(1-x**2) - 4*u - 4*v
 
 
 def iterar(x, u, v, f): 
